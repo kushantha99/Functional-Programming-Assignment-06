@@ -4,7 +4,7 @@ def encryption(text: String, shift: Int): String = {
   def encProcess(letter: Char): Char = {
     if (letter.isLetter) {
       val base = if (letter.isUpper) 'A' else 'a'
-      val shiftedChar = (base + (letter - base + letterCount + 1) % letterCount).toChar
+      val shiftedChar = (base + (letter - base + letterCount + shift) % letterCount).toChar
       shiftedChar
     } else {
       letter
@@ -20,7 +20,7 @@ def decrypting(text: String, shift: Int): String = {
   def decProcess(letter: Char): Char = {
     if (letter.isLetter) {
       val base = if (letter.isUpper) 'A' else 'a'
-      val shiftedChar = (base + (letter - base + letterCount - 1) % letterCount).toChar
+      val shiftedChar = (base + (letter - base + letterCount - shift) % letterCount).toChar
       shiftedChar
     } else {
       letter
